@@ -1,0 +1,249 @@
+@charset "utf-8";
+
+body, p, h1, h2, h3, h4, h5, h6, figure, ul, ol, dl, dd {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'Noto Serif JP', -apple-system, BlinkMacSystemFont, serif, Arial, "Helvetica Neue", "ＭＳ Ｐゴシック", YuGothic, "ヒラギノ角ゴ Pro N W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+a, textarea, input, select, button {
+    outline: none;
+}
+
+.fixed-background {
+  background-image: url(../img/bgImg.svg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+  transition: all 0.5s;
+}
+
+a:hover {
+  color: #c50000;
+}
+
+/* ヘッダー */
+header {
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: rgb(250, 250, 250);
+  margin: 0 auto;
+  width: 100%;
+}
+
+header > a {
+  text-transform: capitalize;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+header a::before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  content: "";
+  background-color: #c50000;
+}
+
+header a span {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 3em;
+  padding-left: 0.25em;
+  color: rgba(0, 0, 0, 0.4);
+  padding-bottom: 10px;
+  display: block;
+}
+
+header li {
+  font-size: 20px;
+  padding: 5px 15px 0 10px;
+}
+
+header li a::after {
+  display: block;
+  font-size: 10px;
+  text-align: center;
+}
+
+header .profile a::after {
+  content: "-自己紹介-";
+}
+
+header .academic_background a::after {
+  content: "-学歴-";
+}
+
+header .career a::after {
+  content: "-職務経験-";
+}
+
+header .licenses a::after {
+  content: "-資格-";
+}
+
+header .works a::after {
+  content: "-製作実績-";
+}
+
+header nav {
+  margin: auto 10px 10px 0;
+}
+
+/* メイン画像 */
+.top_img {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 10vh;
+  background-color: rgb(250, 250, 250);
+}
+
+.top_img figcaption {
+  text-align: center;
+}
+
+.slideshow {
+  width: 100%;
+  overflow: hidden;
+}
+.slideshow figure {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.slideshow figure:first-child {
+  display: block;
+}
+
+.slideshow img {
+  width: 100%;
+  height: auto;
+}
+
+.top_img p {
+  margin: 0 auto;
+  font-size: 2vw;
+  width: 45vw;
+  position: absolute;
+  top: 21vh;
+  left: 30vw;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* メインコンテンツ */
+.bg_color {
+  background-color: rgba(200, 200, 200, .7);
+  font-weight: bold;
+}
+
+main > section {
+  padding-top: 120px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  border-bottom: 2px solid #c50000;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+section h3 {
+  border-bottom: 2px solid #c50000;
+}
+.contents {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+  line-height: 2em;
+}
+
+.contents div {
+  padding-top: 1em;
+  margin: 0 auto;
+  width: 500px;
+}
+
+#profile img {
+  width: 420px;
+  margin: 0 auto;
+  display: block;
+}
+
+#profile section {
+  padding-top: 1em;
+}
+
+section dl {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section dt {
+  width: 100px;
+  text-align: center;
+}
+
+section dd {
+  width: 870px;
+}
+
+#licenses li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* フッター */
+footer {
+  background-color: rgba(200, 200, 200, .7);
+  font-weight: bold;
+  text-align: center;
+  padding-top: 30vh;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 汎用CSS */
+.flex {
+  display: flex;
+}
+
+.line_space {
+  padding-bottom: 1em;
+}
+
+.txt_center {
+  text-align: center;
+}
