@@ -11,7 +11,7 @@ a, textarea, input, select, button {
 }
 
 .fixed-background {
-  background-image: url(../img/bgImg.svg);
+  background-image: url(./img/bgImg.svg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
