@@ -1,14 +1,13 @@
 @charset "utf-8";
-
 body, p, h1, h2, h3, h4, h5, h6, figure, ul, ol, dl, dd {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-family: 'Noto Serif JP', -apple-system, BlinkMacSystemFont, serif, Arial, "Helvetica Neue", "ＭＳ Ｐゴシック", YuGothic, "ヒラギノ角ゴ Pro N W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: 'Noto Serif JP', -apple-system, BlinkMacSystemFont, serif, Arial, "ＭＳ Ｐゴシック", YuGothic,"メイリオ", Meiryo, sans-serif;
 }
 
 a, textarea, input, select, button {
-    outline: none;
+  outline: none;
 }
 
 .fixed-background {
@@ -40,6 +39,7 @@ header {
   width: 100%;
 }
 
+/* ヘッダーロゴ */
 header > a {
   text-transform: capitalize;
   position: relative;
@@ -54,7 +54,7 @@ header > a {
   transition: all 0.4s ease 0s;
 }
 
-header a::before {
+header > a::before {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -64,7 +64,7 @@ header a::before {
   background-color: #c50000;
 }
 
-header a span {
+header > a span {
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -76,9 +76,18 @@ header a span {
   display: block;
 }
 
-header li {
+/* ヘッダーメニュー */
+header.pcMenu nav {
+  margin: auto 10px 10px 0;
+}
+
+header.pcMenu li {
   font-size: 20px;
   padding: 5px 15px 0 10px;
+}
+
+header.spMenu {
+  display: none;
 }
 
 header li a::after {
@@ -107,10 +116,6 @@ header .works a::after {
   content: "-製作実績-";
 }
 
-header nav {
-  margin: auto 10px 10px 0;
-}
-
 /* メイン画像 */
 .top_img {
   background-size: contain;
@@ -118,7 +123,7 @@ header nav {
   width: 100%;
   height: auto;
   position: relative;
-  margin-top: 10vh;
+  margin-top: 109px;
   background-color: rgb(250, 250, 250);
 }
 
@@ -130,11 +135,13 @@ header nav {
   width: 100%;
   overflow: hidden;
 }
+
 .slideshow figure {
   display: none;
   width: 100%;
   height: 100%;
 }
+
 .slideshow figure:first-child {
   display: block;
 }
@@ -183,21 +190,26 @@ section h2 {
 section h3 {
   border-bottom: 2px solid #c50000;
 }
+
 .contents {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 40px;
   line-height: 2em;
+  box-sizing: border-box;
 }
 
-.contents div {
+#profile .contents div {
   padding-top: 1em;
   margin: 0 auto;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
 }
 
 #profile img {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   margin: 0 auto;
   display: block;
 }
@@ -246,4 +258,108 @@ footer {
 
 .txt_center {
   text-align: center;
+}
+
+/* タブレット版css */
+@media screen and (max-width: 1024px) {
+  header.pcMenu {
+    display: none;
+  }
+
+  header.spMenu {
+    display: block;
+  }
+
+   /* ハンバーガーメニューボタン */
+  .hamburger {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    right: 20px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #c50000;
+    margin: 5px 0;
+    transition: all 0.3s;
+  }
+
+  /* ハンバーガーボタンのアニメーション */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0; /* 真ん中の線を非表示 */
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  header.spMenu nav.menu {
+    display: none;
+  }
+
+  header.spMenu nav.menu.open {
+    display: block;
+    animation: fade-in .8s linear;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  header.spMenu nav ul {
+    display: block;
+    position: absolute;
+    top: 109px;
+    background-color: rgb(250, 250, 250);
+    width: 100%;
+  }
+
+  header.spMenu nav li {
+    text-align: center;
+    height: 40px;
+  }
+}
+
+/* スマホ版css */
+@media screen and (max-width: 428px) {
+  header > a {
+    font-size: 24px;
+  }
+
+  header > a span {
+    font-size: 8px;
+  }
+
+  header.spMenu nav ul {
+    top: 70px;
+  }
+
+  .top_img {
+    margin-top: 70px;
+  }
+
+  #profile img {
+    max-width: 200px;
+  }
+
+  #licenses li span {
+    display: block;
+    line-height: 1em;
+    padding-bottom: 0.25em;
+  }
 }
